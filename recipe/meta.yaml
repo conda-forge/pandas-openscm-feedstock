@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pandas-openscm/pandas_openscm-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pandas-openscm/pandas_openscm-{{ version }}.tar.gz
   sha256: b1d7baa79080fdcf7d39e0ce2c95f87df53e15a12b26c89a0a0809373bf09a8c
 
 build:
@@ -40,6 +40,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
 
   - name: pandas-openscm-locked
     build:
