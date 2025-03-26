@@ -1,48 +1,90 @@
-{% set name = "pandas-openscm" %}
 {% set version = "0.3.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: pandas-openscm-suite
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pandas_openscm-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pandas-openscm/pandas_openscm-{{ version }}.tar.gz
   sha256: b1d7baa79080fdcf7d39e0ce2c95f87df53e15a12b26c89a0a0809373bf09a8c
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python {{ python_min }}
-    - pdm-backend
-    - pip
-  run:
-    - python >={{ python_min }}
-    - attrs >=24.3.0
-    - numpy >=1.25.0
-    - pandas >=2.2.0
+    - python
 
-test:
-  imports:
-    - pandas_openscm
-  commands:
-    - pip check
-  requires:
-    - pip
+outputs:
+  - name: pandas-openscm
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pdm-backend
+        - pip
+
+      run:
+        - python >={{ python_min }}
+        - attrs >=24.3.0
+        - numpy >=1.25.0
+        - pandas >=2.2.0
+
+    test:
+      imports:
+        - pandas_openscm
+      commands:
+        - pip check
+      requires:
+        - pip
+        - python {{ python_min }}
+
+  - name: pandas-openscm-locked
+    build:
+      noarch: python
+
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pdm-backend
+        - pip
+
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('pandas-openscm', exact=True) }}
+        - {{ pin_compatible('attrs', lower_bound='24.3.0', upper_bound='24.3.1') }}
+        - {{ pin_compatible('numpy', lower_bound='2.0.2 ', upper_bound='2.0.3') }}
+        - {{ pin_compatible('pandas', lower_bound='2.2.3', upper_bound='2.2.4') }}
+
+    test:
+      imports:
+        - pandas_openscm
+      commands:
+        - pip check
+      requires:
+        - pip
+        - python {{ python_min }}
 
 about:
   home: https://pandas-openscm.readthedocs.io
   summary: Pandas accessors for OpenSCM-related functionality.
   description: |
     Pandas accessors for OpenSCM-related functionality.
+    It is provided, by default, as a library.
+    If you wish to use it as an application,
+    we recommend installing the locked version of the package,
+    i.e. `pandas-openscm-locked`,
+    because this pins the versions of key dependencies
+    (which avoids breakages because of updates to dependencies).
   license: BSD-3-Clause
   license_file: LICENCE
   doc_url: https://pandas-openscm.readthedocs.io
   dev_url: https://github.com/openscm/pandas-openscm
 
 extra:
+  feedstock-name: pandas-openscm
   recipe-maintainers:
     - znicholls

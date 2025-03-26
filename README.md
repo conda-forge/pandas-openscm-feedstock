@@ -14,6 +14,12 @@ Development: https://github.com/openscm/pandas-openscm
 Documentation: https://pandas-openscm.readthedocs.io
 
 Pandas accessors for OpenSCM-related functionality.
+It is provided, by default, as a library.
+If you wish to use it as an application,
+we recommend installing the locked version of the package,
+i.e. `pandas-openscm-locked`,
+because this pins the versions of key dependencies
+(which avoids breakages because of updates to dependencies).
 
 
 Current build status
@@ -35,6 +41,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pandas--openscm-green.svg)](https://anaconda.org/conda-forge/pandas-openscm) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pandas-openscm.svg)](https://anaconda.org/conda-forge/pandas-openscm) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pandas-openscm.svg)](https://anaconda.org/conda-forge/pandas-openscm) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pandas-openscm.svg)](https://anaconda.org/conda-forge/pandas-openscm) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pandas--openscm--locked-green.svg)](https://anaconda.org/conda-forge/pandas-openscm-locked) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pandas-openscm-locked.svg)](https://anaconda.org/conda-forge/pandas-openscm-locked) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pandas-openscm-locked.svg)](https://anaconda.org/conda-forge/pandas-openscm-locked) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pandas-openscm-locked.svg)](https://anaconda.org/conda-forge/pandas-openscm-locked) |
 
 Installing pandas-openscm
 =========================
@@ -46,16 +53,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pandas-openscm` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pandas-openscm, pandas-openscm-locked` can be installed with `conda`:
 
 ```
-conda install pandas-openscm
+conda install pandas-openscm pandas-openscm-locked
 ```
 
 or with `mamba`:
 
 ```
-mamba install pandas-openscm
+mamba install pandas-openscm pandas-openscm-locked
 ```
 
 It is possible to list all of the versions of `pandas-openscm` available on your platform with `conda`:
