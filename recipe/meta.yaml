@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: pandas-openscm-suite
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pandas-openscm/pandas_openscm-{{ version }}.tar.gz
-  sha256: 8c54fc3631471820d895af7485cb26f6675342cca81ff0a33ecc1f96723abc37
+  sha256: f2de6451987c1dd242dc6db3f5c2457846f503597c4a028895a48e7bd1e919d6
 
 build:
   number: 0
