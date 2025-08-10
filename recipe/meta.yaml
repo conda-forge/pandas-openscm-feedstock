@@ -24,7 +24,7 @@ outputs:
     requirements:
       host:
         - python {{ python_min }}
-        - uv >=0.8.0
+        - uv-build >=0.8.0
         - pip
 
       run:
@@ -49,7 +49,7 @@ outputs:
     requirements:
       host:
         - python {{ python_min }}
-        - pdm-backend
+        - uv-build >=0.8.0
         - pip
 
       run:
