@@ -12,6 +12,3 @@ python:
 - 3.12.* *_cpython
 python_min:
 - '3.10'
-zip_keys:
-- - python
-  - channel_sources
