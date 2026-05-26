@@ -9,7 +9,7 @@ source:
   sha256: 9831a6d9536348044ef210c005c8708ab345940f289f6db6688c71f67a998b93
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -29,8 +29,8 @@ outputs:
 
       run:
         - python >={{ python_min }}
-        - attrs >=24.3.0
-        - numpy >=1.25.0
+        - attrs >=22.1.0
+        - numpy >=2.1.0
         - pandas >=2.2.0
 
     test:
@@ -55,9 +55,9 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage('pandas-openscm', exact=True) }}
-        - {{ pin_compatible('attrs', lower_bound='24.3.0', upper_bound='24.3.1') }}
-        - {{ pin_compatible('numpy', lower_bound='2.0.2', upper_bound='2.2.5') }}
-        - {{ pin_compatible('pandas', lower_bound='2.2.3', upper_bound='2.2.4') }}
+        - {{ pin_compatible('attrs', lower_bound='26.1.0', upper_bound='26.1.1') }}
+        - {{ pin_compatible('numpy', lower_bound='2.2.6', upper_bound='2.4.7') }}
+        - {{ pin_compatible('pandas', lower_bound='2.3.3', upper_bound='2.3.4') }}
 
     test:
       imports:
