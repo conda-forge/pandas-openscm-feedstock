@@ -12,8 +12,6 @@ build:
   number: 0
 
 requirements:
-  host:
-    - python
 
 outputs:
   - name: pandas-openscm
@@ -48,7 +46,6 @@ outputs:
 
     requirements:
       host:
-        - python {{ python_min }}
         - uv-build >=0.8.0
         - pip
 
